@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+#header {
+  @include flex(space-evenly);
+  background: $white;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 100%;
+  padding: var(--padding);
+  a {
+    color: $secondary;
+    &.active {
+      color: $primary;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

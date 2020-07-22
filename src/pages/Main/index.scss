@@ -1,0 +1,34 @@
+@import "../../styles/variables";
+
+.main {
+  @include flex-center;
+  flex-direction: column;
+  &-window {
+    @include flex-center;
+    @include border-material;
+    width: var(--window-width);
+    min-height: var(--window-height);
+    margin-bottom: var(--padding);
+    padding: calc(var(--padding) * 1);
+  }
+  &-buttons {
+    @include flex-center;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 500px) {
+  .main {
+    &-window {
+      width: var(--window-width);
+    }
+  }
+}
+
+@media (max-width: 499px) {
+  .main {
+    &-window {
+      width: 100%;
+    }
+  }
+}

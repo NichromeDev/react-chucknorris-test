@@ -1,0 +1,8 @@
+@import "./variables";
+
+.App {
+  @include flex-center;
+  flex-direction: column;
+  padding: var(--padding);
+  padding-top: calc(var(--padding) + var(--header-height));
+}

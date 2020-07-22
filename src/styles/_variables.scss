@@ -1,0 +1,41 @@
+$primary: #3f51b5;
+$secondary: lightblue;
+
+$white: white;
+$shadow: rgba(0,0,0,0.3);
+$black: black;
+$scrollbarBackground: #F5F5F5;
+
+
+// MIXIN
+@mixin flex($jc: center, $fld: none, $ai: center) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fld;
+}
+
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin border-material {
+  border-radius: var(--b-r);
+  border: 1px solid $primary;
+}
+
+// @mixin row($number: 3) {
+//   width: calc(100% / $number - ($number - 1) * var(--padding) / $number);
+//   margin-right: var(--padding);
+//   &:nth-child($number n) {
+//     margin-right: 0;
+//   }
+// }

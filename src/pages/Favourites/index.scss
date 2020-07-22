@@ -1,0 +1,61 @@
+@import "../../styles/variables";
+
+.features {
+  @include flex-start;
+  width: 100%;
+  margin-bottom: var(--padding);
+}
+
+.favourites {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .joke {
+    @include border-material;
+    position: relative;
+    padding: var(--padding);
+    padding-bottom: calc(var(--padding) * 2);
+    .delete {
+      cursor: pointer;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+@media (min-width: 1141px) {
+  .favourites {
+    .joke {
+      margin-bottom: calc(2 * var(--padding));
+      width: calc(100% / 3 - (3 - 1) * var(--padding) / 3);
+      margin-right: var(--padding);
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1140px) {
+  .favourites {
+    .joke {
+      margin-bottom: calc(2 * var(--padding));
+      width: calc(100% / 2 - (2 - 1) * var(--padding) / 2);
+      margin-right: var(--padding);
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 499px) {
+  .favourites {
+    .joke {
+      margin-bottom: calc(1 * var(--padding));
+      width: 100%;
+    }
+  } 
+}
+

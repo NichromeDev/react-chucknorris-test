@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-function App() {
+import FavouritesContext from "./context/FavouritesContext";
+import { useFavourites } from "./hooks/favourites.hook";
+
+import {Header} from "./components"
+import Routes from "./Routes";
+
+import "./styles/App.scss"
+
+export default (): JSX.Element => {
+  const { add, remove, clear, favourites } = useFavourites();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FavouritesContext.Provider
+      value={{
+        add,
+        remove,
+        clear,
+        favourites,
+      }}
+    >
+      <div className="App">
+        <Router>
+          <Header />
+          <Routes />
+        </Router>
+      </div>
+    </FavouritesContext.Provider>
   );
-}
-
-export default App;
+};
